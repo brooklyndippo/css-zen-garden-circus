@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Microbe&family=Rye&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap');
+
+:root {
+    /* fonts */
+    --circus-display-font: 'Rye';
+    --font-text: 'Alegreya';
+    --sytem-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",sans-serif;
+    /* colors */
+    --circus-red: #b01302;
+    --acrobat-green: #50958f;
+    --barnum-blue: #1A5169;
+    --lions-mane-yellow: #d5aa10;
+    --parchment-poster: #ded3bc;
+    --old-white: #FFF8EA;
+    --black-ink: #172023;
+}
+
+html {
+    font-family: var(--font-text);
+    font-weight: 400; 
+    font-size: 10px;
+    color: var(--black-ink);
+    line-height: 1.4;
+    margin: 0;
+    padding: 5%;
+    position: relative;
+}
+
+body {
+    font-size: 1.5rem;
+    background-color: var(--parchment-poster);
+    border: 20px solid var(--circus-red);
+    outline: 5px solid var(--lions-mane-yellow);
+    /* background: repeating-linear-gradient(
+        to right,
+        #c5e6eb89,
+        #c5e6eb89 80px,
+        #ffffff 10px,
+        #ffffff 160px
+      ); */
+}
+
+.page-wrapper {
+    display: grid;
+    background-color: var(--acrobat-green);
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    grid-template-areas: 
+    "i i i"
+    "m m s"
+    "m m s";
+}
+
+.intro, .main, .sidebar {
+    margin: 20px;
+}
+
+.intro {
+    grid-area: i;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+    grid-template-areas: 
+    "a a a a"
+    "b b b b"
+    "c c c c";
+}
+
+header {
+    grid-area: a;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+}
+
+.summary {
+    grid-area: b;
+    text-align: center;
+}
+
+.preamble {
+    grid-area: c;
+    background-image: url(/static/circus-clown.png);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    background-position: center right 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+    "d d d d" 
+    "e f g .";
+}
+
+.preamble h3 {
+    grid-area: d;
+}
+
+.preamble > :nth-child(2) {
+    grid-area: e;
+}
+
+.preamble > :nth-child(3) {
+    grid-area: f;
+}
+
+.preamble > :last-child {
+    grid-area: g;
+}
+
+
+.preamble::after {
+    grid-area: d;
+    background-image: url(/static/circus-clown.png);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    background-position: center;
+    width: 200px;
+    height: 200px;
+    z-index: 1;
+}
+
+
+abbr {
+    text-decoration: none;
+}
+
+h1 {
+    padding-bottom: 500px;
+    background-image: url(/static/circus-tent.png);
+    background-repeat: no-repeat;
+    background-size: 500px;
+    background-position: bottom center;
+    margin: 0;
+    font-family: var(--circus-display-font);
+    font-size: 8rem;
+    font-weight: 100;
+    text-transform: uppercase;
+    color: var(--circus-red);
+    text-align: center;
+    -webkit-text-stroke: 1.5px var(--old-white);
+}
+
+h1::after {
+    content: " Circus"
+}
+
+.sidebar {
+    grid-area: s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    background-color: var(--parchment-poster);
+    border: 3px solid var(--lions-mane-yellow);
+}
+
+.main {
+    grid-area: m;
+}
+
+h2, h3 {
+    font-weight: 700;
+    font-size: 4rem;
+    color: var(--old-white);
+    -webkit-text-stroke: 1px var(--black-ink);
+}
+
+p {
+    font-size: 1.8rem;
+}
+
+a {
+    color: var(--barnum-blue);
+    text-decoration: solid underline currentColor 1px;
+}
+
+.design-selection a {
+    text-decoration: none;
+}
+
+.design-selection li {
+    list-style: none;
+}
+
+.next > a {
+    visibility: hidden;
+}
+
+.next:after {
+    content: 'Next Show'
+}
+
+.extra2 {
+    background-image: url(/static/circus-unicycle.png);
+    background-repeat: no-repeat;
+    background-size: 150px;
+    position: fixed;
+    bottom: -5px;
+    right: -25%;
+    width: 200px;
+    height: 200px;
+    animation: cyclist 30s infinite;
+}
+
+/* .extra3 {
+    background-image: url(/static/circus-clown.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px;
+    background-color: var(--barnum-blue);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    width: 100px;
+    height: 100px;
+    position: fixed;
+} */
+
+@keyframes cyclist{
+    50%  {right: 115%}
+    51% {transform: scaleX(1)}
+    52% {transform: scaleX(-1)}
+    98% {transform: scaleX(-1)}
+    99% {transform: scaleX(1)}
+    100%  {right: -25%;}
+  }
+
+.extra4 {
+    background-image: url(/static/circus-elephant.png);
+    background-repeat: no-repeat;
+    background-size: 100px;
+    bottom: 0%;
+    left: 95%;
+    width: 100px;
+    height: 200px;
+    position: absolute;
+}
+
+
+/* box model, flex, grid */
+
+/* .intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+} */
+
